@@ -1,0 +1,110 @@
+{
+    "ID": 5,
+    "shares": [
+        {
+            "share_id": 0,
+            "share": "010BAA64E4C99B0DA3EBFDE1B76EFC1385C1597E457830",
+            "signature": "f92b31590333dc4b0bd9b3e1fdb2778a94a637a9a40c7fd88b247bfcb86d53d1"
+        },
+        {
+            "share_id": 1,
+            "share": "020BAAA5B86EC45B681BA949730CE45527419E20F1EE0B",
+            "signature": "19ef7add4b809ffed694762f25588feead53337e438220382655b520b3c68cc0"
+        },
+        {
+            "share_id": 2,
+            "share": "030BAAC23A8144E2A072D6D72434728D29B4D839027B80",
+            "signature": "3ce922ef75e221ae30a47613ca4683c55dedffd7c44c8c303ab1ad0e53968861"
+        },
+        {
+            "share_id": 3,
+            "share": "040BAA224CF3CFF3897F41AA7587FF61E62351539B56E2",
+            "signature": "7e82eb057594e6c56021e6300c901bd50caa2fa45a0bac7b235c19d240884653"
+        },
+        {
+            "share_id": 4,
+            "share": "050BAA5A716A1EECF0253E65779F785179002425C03795",
+            "signature": "5d353ce7f46471c06d96eca8e8bc06d000bae467cd73e7cd8640ca1df1c0abba"
+        },
+        {
+            "share_id": 5,
+            "share": "060BAA9A33CE3289649B58C09C8FC88F17F78703B3CE84",
+            "signature": "75528b2121a7343cb3e39b8e9340f2ec19e4b8a29c51655e77ea47e1a3aa8e2f"
+        },
+        {
+            "share_id": 6,
+            "share": "070BAAAF35F9D79F24FB41BC596DA475C8C5604CF73A33",
+            "signature": "417d5771ce03c6afd2d6c55dca508bd3546f4414c5a764278b705a5e8af89a24"
+        },
+        {
+            "share_id": 7,
+            "share": "080BAAB7E727F2C542BBDDEB96F585B6AF520B17F7F97D",
+            "signature": "7ee0f37df0948389bbd56ed6eeaf891d41a6ebced9460f4d5d1dd0393b4690ad"
+        },
+        {
+            "share_id": 8,
+            "share": "090BAA7BECA5709D8FF4523ECA0767F851872F0B4517C0",
+            "signature": "e295337955143bd9687291cdbd385fe1c04b0729b29f40604f620fec68cb4297"
+        },
+        {
+            "share_id": 9,
+            "share": "0A0BAA9F86E64F9354B18971B48D1AF089A849EFE8DD69",
+            "signature": "cf33c1084b1660f0121b4880e7532edb40bde176970bb1084b81710d11ddf922"
+        },
+        {
+            "share_id": 10,
+            "share": "0B0BAAC37129854B5EFA47415D4F101BF72A9FD2FA1322",
+            "signature": "15908e33ec48f3061d43f665c7a0178fd343e48313574c6e89b4d04256b7fb6f"
+        },
+        {
+            "share_id": 11,
+            "share": "0C0BAAA46378F6B0B310ADC64786BFED105D2824D78479",
+            "signature": "4f69b1e52916871e8472fb523ab9d930714b448d2d6a82ba7f2bfdd7891efc48"
+        },
+        {
+            "share_id": 12,
+            "share": "0D0BAA6479059BA9FC24EA26D719CF874DFA5730A79092",
+            "signature": "4b0336bb33c2a7edfb2912bcafe3b1680f414c6ce1ac2cf5719e2757c65d5fef"
+        },
+        {
+            "share_id": 13,
+            "share": "0E0BAAC1F04A094089861233CBD35506D0E7E7F876DB41",
+            "signature": "f3e107dfc248406cde608ac5bcfdd451043a50192cb5068bdb58e91c2b42b206"
+        },
+        {
+            "share_id": 14,
+            "share": "0F0BAA58710DFB5464E7F2DF83182592264CAFCCA167AF",
+            "signature": "d06359ddf05d5f8642bc9c2a5174368fc0ee7b8243bd860826d5e79e40a76487"
+        },
+        {
+            "share_id": 15,
+            "share": "100BAA759ECDF72D7D7CBFA58BEDF03FB1B158C21CDA71",
+            "signature": "6911df146d3b7b86a8e844688e94fb2392a017dfcc6f270ce51ec7220e59760a"
+        },
+        {
+            "share_id": 16,
+            "share": "110BAA6C0AFD0F722787F7AAF82033EBBF6A52F3BCBEAF",
+            "signature": "fd41d4edcb0db745a19ec37aae2163478a7b31c5a12a941869b5ec897af51c2d"
+        },
+        {
+            "share_id": 17,
+            "share": "120BAAB16F254B2120012AE22F880992184A2ADCD6FA53",
+            "signature": "0455f8e8337d13882c09578200fd52c3712ec1a3557af91870a88eb9b8476094"
+        },
+        {
+            "share_id": 18,
+            "share": "130BAAA2ED7A5EA4C086C23551DB637AFE53D7B94F259D",
+            "signature": "b82d18eb7142f2b47e81115eee69ffc02a038c90c2a5e70d938c943d9f51001a"
+        },
+        {
+            "share_id": 19,
+            "share": "140BAAEDCECD16B3202D5E5E304D7B4A657C50EDE07846",
+            "signature": "28da22715f74ffd1c1b1337a828f3139c38bc0b8a84c6693cc25a95cd7e48dde"
+        },
+        {
+            "share_id": 20,
+            "share": "150BAA8FC757D5F86D8F07596049D65E07617D12198A19",
+            "signature": "7824db144a0d35c19329c97131c89e18d679702f3c0c5d5a0765dc189bf3117b"
+        }
+    ]
+}
