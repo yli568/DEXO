@@ -9,20 +9,34 @@ contract FairExchange {
     address public buyer;
     uint256 public price;
     string public auxiliaryInfo;
-    bytes32[] public r_z;
-    bytes32[] public commitment;
-    bytes[] public key;
+    bytes32[31] public r_z;
+    bytes32[31] public commitment;
+    bytes[31] public key;
     string buyerIp;
     uint256 buyerPort;
     uint256 revealedKeyNumber;
-    stage[] public phase;
+    stage[31] public phase;
 
-    event SellerInitialized(address seller, uint256 price, string auxiliaryInfo, address[] dataSources, address[] sellerNodes);
-    event SellerNodeInitialized(address sellerNode, bytes32 r_z, bytes32 commitment);
+    event SellerInitialized(
+        address seller,
+        uint256 price,
+        string auxiliaryInfo,
+        address[] dataSources,
+        address[] sellerNodes
+    );
+    event SellerNodeInitialized(
+        address sellerNode,
+        bytes32 r_z,
+        bytes32 commitment
+    );
     event BuyerClaimed(address buyer, string buyerIp, uint256 buyerPort);
     event BuyerAccepted(address sellerNode, uint256 amount);
     event KeyRevealed(address sllerNode, bytes key);
-    enum stage {initialized, accepted, revealed}
+    enum stage {
+        initialized,
+        accepted,
+        revealed
+    }
 
     uint[] public timeout;
     // stage[] public phase = stage.initialized;
@@ -31,14 +45,25 @@ contract FairExchange {
         timeout[i] = block.timestamp + 10 minutes;
     }
 
-    constructor(uint256 _price, string memory _auxiliaryInfo, address[] memory _dataSources, address[] memory _sellerNodes) {
+    constructor(
+        uint256 _price,
+        string memory _auxiliaryInfo,
+        address[] memory _dataSources,
+        address[] memory _sellerNodes
+    ) {
         price = _price;
         auxiliaryInfo = _auxiliaryInfo;
         dataSources = _dataSources;
         seller = msg.sender;
         sellerNodes = _sellerNodes;
         revealedKeyNumber = 0;
-        emit SellerInitialized(seller, price, auxiliaryInfo, dataSources, sellerNodes);
+        emit SellerInitialized(
+            seller,
+            price,
+            auxiliaryInfo,
+            dataSources,
+            sellerNodes
+        );
     }
 
     // Function for sellerNodes to initialize the contract
@@ -62,8 +87,8 @@ contract FairExchange {
 
     function buyerClaim(string calldata _ip, uint256 _port) external {
         buyer = msg.sender;
-        buyerIp=_ip;
-        buyerPort=_port;
+        buyerIp = _ip;
+        buyerPort = _port;
         emit BuyerClaimed(buyer, buyerIp, buyerPort);
     }
     // After buyer reveals its ip and port, nodes send "z[]"s to buyer.
@@ -98,7 +123,10 @@ contract FairExchange {
         }
         require(isSellerNode, "Only nodes in [sellerNodes] can revealKey.");
         require(phase[i] == stage.accepted);
-        require(keccak256(abi.encodePacked(_key)) == commitment[i], "Invalid key.");
+        require(
+            keccak256(abi.encodePacked(_key)) == commitment[i],
+            "Invalid key."
+        );
         key[i] = _key;
         revealedKeyNumber += 1;
         emit KeyRevealed(sellerNodes[i], key[i]);
@@ -106,13 +134,14 @@ contract FairExchange {
     }
 
     // Everyone can call this function.
-    function noComplain() external  {
-        require(revealedKeyNumber > sellerNodes.length/2 + 1);
-        for(uint i=0; i < sellerNodes.length; i++){
+    function noComplain() external {
+        require(revealedKeyNumber > sellerNodes.length / 2 + 1);
+        for (uint i = 0; i < sellerNodes.length; i++) {
             require(block.timestamp > timeout[i]);
         }
         uint256 sellerPayment = address(this).balance / 10;
-        uint256 paymentPerDataSource = (address(this).balance - sellerPayment) / dataSources.length;
+        uint256 paymentPerDataSource = (address(this).balance - sellerPayment) /
+            dataSources.length;
         for (uint j = 0; j < dataSources.length; j++) {
             payable(dataSources[j]).transfer(paymentPerDataSource);
         }
@@ -121,16 +150,23 @@ contract FairExchange {
 
     function isValidChar(uint8 charCode) private pure returns (bool) {
         // '0'-'9' => 48-57, 'A'-'Z' => 65-90, 'a'-'z' => 97-122
-        if((charCode >= 48 && charCode <= 57) || 
-           (charCode >= 65 && charCode <= 90) || 
-           (charCode >= 97 && charCode <= 122)) {
+        if (
+            (charCode >= 48 && charCode <= 57) ||
+            (charCode >= 65 && charCode <= 90) ||
+            (charCode >= 97 && charCode <= 122)
+        ) {
             return true;
         }
         return false;
     }
 
     // Challenge a bad node. A simple challenge.
-    function challenge1(address badNode, bytes memory badShare, bytes32[] memory proofs, uint256 index) external {
+    function challenge1(
+        address badNode,
+        bytes memory badShare,
+        bytes32[] memory proofs,
+        uint256 index
+    ) external {
         require(msg.sender == buyer);
         bool isSellerNode = false;
         uint256 i = 0;
@@ -151,15 +187,18 @@ contract FairExchange {
             }
             index = index / 2;
         }
-        require(computedHash == r_z[i], "The share is not provided by sellerNodes.");
+        require(
+            computedHash == r_z[i],
+            "The share is not provided by sellerNodes."
+        );
         bool isValid = true;
-        for(i = 0; i < badShare.length; i++){
-            if(!isValidChar(uint8(badShare[i]))){
+        for (i = 0; i < badShare.length; i++) {
+            if (!isValidChar(uint8(badShare[i]))) {
                 isValid = false;
             }
         }
         require(isValid == false, "The share is not garbled data. It's valid");
-        
+
         // Return money to buyer
         payable(buyer).transfer(price);
         badNodes.push(badNode);
